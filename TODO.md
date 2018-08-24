@@ -1,0 +1,1 @@
+- show List of artists, albums, songs
