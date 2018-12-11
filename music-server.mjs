@@ -14,8 +14,8 @@ const server = Hapi.server({
 
 server.route({
   method: 'GET',
-  path: '/artists',
-  handler: () => fs.readdirSync(config.locations.music,'utf8')
+  path: '/',
+  handler: () => (fs.readdirSync(config.locations.music,'utf8')).filter(dir => dir[0] !== '.')
 });
 
 server.route({
@@ -59,8 +59,6 @@ server.route({
 //   handler: () => fs.readdirSync([config.locations.music].join('/'),'utf8')
 // });
 
-
 server.start();
-
 
 console.log("Yoo! Let's hear some music y'all!");

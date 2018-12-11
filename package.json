@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "run": "node --experimental-modules music-server.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
