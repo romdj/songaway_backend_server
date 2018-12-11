@@ -4,6 +4,9 @@
 - show List of artists, albums, songs
 - stream media
 
+## Data
+- Static routing or use of DB? (possibility of using Mongo, Redis)
+
 ## Ops (7)
 - Think of architecture (serverless, server, where is it stored/reached etc)
 - implement CICD pipeline withing Github
