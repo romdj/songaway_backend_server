@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "hapi": "^17.5.3",
-    "lodash": "^4.17.10"
+    "hapi": "^17.5.3"
   }
 }
