@@ -1,6 +1,6 @@
 import { readdirSync } from 'fs';
 
-import './config.json';
+import config from '../../config.json';
 
 const mainRoute = {
   method: 'GET',

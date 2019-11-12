@@ -1,11 +1,11 @@
 import { readdirSync } from 'fs';
 
-import './config.json';
+import config from '../../config.json';
 
-const mainRoute = {
+const main = {
   method: 'GET',
   path: '/images',
   handler: () => (readdirSync(config.locations.images, 'utf8')).filter(dir => dir[0] !== '.')
 };
 
-export { mainRoute };
+export { main };

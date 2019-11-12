@@ -1,6 +1,7 @@
 import { readdirSync, lstatSync } from 'fs';
 import Hapi from 'hapi';
-import config from './config';
+
+import config from '../../config.json';
 
 
 const main = {
