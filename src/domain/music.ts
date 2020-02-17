@@ -1,10 +1,9 @@
 import { readdirSync, lstatSync } from 'fs';
-import Hapi from 'hapi';
 
-import config from '../../config.json';
+const config = require('../../config.json');
 
 
-const main = {
+const rootMusic = {
   method: 'GET',
   path: '/music',
   handler: () => (readdirSync(config.locations.music, 'utf8')).filter(dir => dir[0] !== '.')
@@ -25,27 +24,6 @@ const album = {
     return readdirSync([config.locations.music, request.params.artist, request.params.album].join('/'), 'utf8')
   }
 };
-
-// server.route({
-//   method: 'GET',
-//   path: '/lib/tree',
-//   handler: (request) => {
-//     // We assume that the structure is Artist/Album/[potential album]/Song therefore we don't specify artist, album or song keys
-//     const currentPath = config.locations.music;
-//     let itemTree = {};
-//     validateFolder(readdirSync(currentPath, 'utf8'), currentPath).forEach((artist) => {
-//       const currentPath = [config.locations.music, artist].join('/');
-//       itemTree[artist] = {};
-//       validateFolder(readdirSync(currentPath, 'utf8'), currentPath).forEach((album) => {
-//         // TODO: handle case where more than 2 folder layer in tree
-//         const currentPath = [config.locations.music, artist, album].join('/');
-//         itemTree[artist][album] = validateMediaFile(readdirSync(currentPath, 'utf8'), currentPath);
-//       });
-//     });
-//     return JSON.stringify(itemTree);
-//   }
-// });
-
 const item = {
   method: 'GET',
   path: '/{artist}/{album}/{element}',
@@ -59,9 +37,6 @@ const item = {
     //     return new Stream()
   }
 };
-
-
-console.log("Yoo! Let's hear some music y'all!");
 
 function validateFolder(arrayFolder, contextPath) {
   const returnElement = [];
@@ -83,4 +58,4 @@ function validateMediaFile(arrayFiles, contextPath) {
   return returnElement;
 }
 
-export { main, artist, album, item };
+export { rootMusic, artist, album, item };
